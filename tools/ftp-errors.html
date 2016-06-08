@@ -12,13 +12,13 @@
         
 <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
 <script language="javascript" type="text/javascript">
-    var oddClick = false;
+    var oddClick = true;
     $(document).ready(function() {
       $('#toggle-button').click(function() {
         $('#container').animate({
-          width: oddClick? "60%":"100%",
+          width: oddClick? "100%":"60%",
         });
-        $(this).text(oddClick? "宽版":"窄版");
+        $(this).text(oddClick? "窄版":"宽版");
         oddClick = !oddClick;
       });
     });
@@ -31,7 +31,7 @@
             
     <div id="header">
         <div id="post-nav">
-            <div id="toggle-button">窄版</div>
+            <div id="toggle-button">宽版</div>
             
             <a href="/">Home</a> » <a href="/#tools">tools</a> » FTP常见错误及解决方案
             
@@ -80,7 +80,7 @@
                 Powered by <a href="http://simiki.org/" target="_blank">Simiki</a>.
                 Theme by <a href="https://github.com/tankywoo/yasimple" target="_blank">YASimple</a>.
               </p>
-                <p>Last Update 2016-06-08 15:40:21</p>
+                <p>Last Update 2016-06-08 15:46:38</p>
                 <p>PageViews:<span id="busuanzi_value_site_pv"></span> | Vistors:<span id="busuanzi_value_site_uv"></span></p>
         </div>
         <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
