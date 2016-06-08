@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <link rel="Stylesheet" type="text/css" href="/static/css/style.css">
+        <link rel="Stylesheet" type="text/css" href="/static/css/tango.css">
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
+        <title>通过源码安装最新版Git - wiki·holten</title>
+        <meta name="keywords" content="holten,wiki"/>
+        <meta name="description" content="holten wiki"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body>
+        <div id="container">
+            
+<div id="header">
+  <div id="post-nav"><a href="/">Home</a>&nbsp;»&nbsp;<a href="/#git">git</a>&nbsp;»&nbsp;通过源码安装最新版Git</div>
+</div>
+<div class="clearfix"></div>
+<div id="title">通过源码安装最新版Git</div>
+  <div id="content">
+  <div class="toc"><span class="toctitle">Table of Contents</span><ul>
+<li><a href="#_1">下载源码</a></li>
+<li><a href="#_2">编译安装</a></li>
+<li><a href="#_3">第一个报错</a></li>
+<li><a href="#_4">第二个报错</a></li>
+<li><a href="#_5">继续编译安装</a></li>
+<li><a href="#_6">建立软链接</a></li>
+</ul>
+</div>
+<h4 id="_1">下载源码</h4>
+<p>到Git的Github主页上下载最新的源码到本地，解压并进入目录。</p>
+<h4 id="_2">编译安装</h4>
+<div class="hlcode"><pre><span class="nb">cd</span> 你的git源码目录
+autoconf
+./configure
+make
+</pre></div>
+
+
+<!-- more -->
+
+<h4 id="_3">第一个报错</h4>
+<p><strong>报错内容：</strong></p>
+<div class="hlcode"><pre>usr/bin/perl Makefile.PL <span class="nv">PREFIX</span><span class="o">=</span><span class="s1">&#39;/usr/local/git&#39;</span> <span class="nv">INSTALL_BASE</span><span class="o">=</span><span class="s1">&#39;&#39;</span> --localedir<span class="o">=</span><span class="s1">&#39;/usr/local/git/share/locale&#39;</span>
+Can<span class="err">&#39;</span>t locate ExtUtils/MakeMaker.pm in @INC <span class="o">(</span>@INC contains: /usr/local/lib64/perl5 /usr/local/share/perl5 /usr/lib64/perl5/vendor_perl /usr/share/perl5/vendor_perl /usr/lib64/perl5 /usr/share/perl5 .<span class="o">)</span> at Makefile.PL line 3.
+BEGIN failed--compilation aborted at Makefile.PL line 3.
+make<span class="o">[</span>1<span class="o">]</span>: *** <span class="o">[</span>perl.mak<span class="o">]</span> Error 2
+make: *** <span class="o">[</span>perl/perl.mak<span class="o">]</span> Error 2
+</pre></div>
+
+
+<p><strong>解决方法：</strong></p>
+<div class="hlcode"><pre>yum install perl-ExtUtils-MakeMaker package
+</pre></div>
+
+
+<h4 id="_4">第二个报错</h4>
+<p><strong>报错内容：</strong></p>
+<div class="hlcode"><pre>tclsh failed; using unoptimized loading
+MSGFMT    po/bg.msg make<span class="o">[</span>1<span class="o">]</span>: *** <span class="o">[</span>po/bg.msg<span class="o">]</span> 错误 127
+</pre></div>
+
+
+<p><strong>解决方法：</strong>
+yum install tcl  build-essential tk gettext</p>
+<h4 id="_5">继续编译安装</h4>
+<div class="hlcode"><pre>make
+make install
+</pre></div>
+
+
+<p>终于世界清净了</p>
+<h4 id="_6">建立软链接</h4>
+<div class="hlcode"><pre>ln -s /usr/local/bin/git /usr/bin
+git --version
+</pre></div>
+
+
+<p>出现了</p>
+<div class="hlcode"><pre>git version 2.6.0.GIT
+</pre></div>
+
+
+<p>至此，<strong>安装完成</strong>。</p>
+</div>
+
+        </div>
+        <div id="footer">
+            <span>
+                Copyright © 2016 holten.
+                Powered by <a href="http://simiki.org/" target="_blank">Simiki</a>.
+            </span>
+        </div>
+        
+    </body>
+</html>

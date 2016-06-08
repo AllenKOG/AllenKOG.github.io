@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <link rel="Stylesheet" type="text/css" href="/static/css/style.css">
+        <link rel="Stylesheet" type="text/css" href="/static/css/tango.css">
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
+        <title>ftp-errors - wiki·holten</title>
+        <meta name="keywords" content="holten,wiki"/>
+        <meta name="description" content="holten wiki"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body>
+        <div id="container">
+            
+<div id="header">
+  <div id="post-nav"><a href="/">Home</a>&nbsp;»&nbsp;<a href="/#tools">tools</a>&nbsp;»&nbsp;ftp-errors</div>
+</div>
+<div class="clearfix"></div>
+<div id="title">ftp-errors</div>
+  <div id="content">
+  <h2 id="227-entering-passive-mode">227 Entering Passive Mode</h2>
+<div class="hlcode"><pre>响应: 227 Entering Passive Mode <span class="o">(</span>192,168,1,16,221,111<span class="o">)</span>.
+命令: LIST
+错误: 连接超时
+错误: 读取目录列表失败
+</pre></div>
+
+
+<p>解决方法：
+1. 打开<code>/etc/vsftpd/vsftpd.conf</code>在最后面加入如下：</p>
+<div class="hlcode"><pre><span class="n">pasv_min_port</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">pasv_max_port</span><span class="o">=</span><span class="mi">30999</span>
+</pre></div>
+
+
+<ol>
+<li>在iptable防火墙规则中加入如下规则：
+打开<code>/etc/sysconfig/iptables</code>加入如下：</li>
+</ol>
+<div class="hlcode"><pre><span class="o">-</span><span class="n">A</span> <span class="n">INPUT</span> <span class="o">-</span><span class="n">m</span> <span class="n">state</span> <span class="err">–</span><span class="n">state</span> <span class="n">NEW</span> <span class="o">-</span><span class="n">m</span> <span class="n">tcp</span> <span class="o">-</span><span class="n">p</span> <span class="n">tcp</span> <span class="err">–</span><span class="n">dport</span> <span class="mi">1</span><span class="o">:</span><span class="mi">30999</span> <span class="o">-</span><span class="n">j</span> <span class="n">ACCEPT</span>
+</pre></div>
+
+
+<ol>
+<li>重启vsftp和iptables服务了。</li>
+</ol>
+<p>重启vsftp服务<code>service vsftpd restart</code></p>
+<p>重启iptables服务<code>service iptables restart</code></p>
+</div>
+
+        </div>
+        <div id="footer">
+            <span>
+                Copyright © 2016 holten.
+                Powered by <a href="http://simiki.org/" target="_blank">Simiki</a>.
+            </span>
+        </div>
+        
+    </body>
+</html>
