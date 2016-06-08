@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <link rel="Stylesheet" type="text/css" href="/static/css/typo.css">
+        <link rel="Stylesheet" type="text/css" href="/static/css/reset_typo.css">
+        <link rel="Stylesheet" type="text/css" href="/static/css/tango.css">
+        <link rel="Stylesheet" type="text/css" href="/static/css/style.css">
+        <title>markdown语法 - wiki·holten</title>
+        <meta name="keywords" content="wiki,holten"/>
+        <meta name="description" content="Lise is beautiful."/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+<script language="javascript" type="text/javascript">
+    var oddClick = true;
+    $(document).ready(function() {
+      $('#toggle-button').click(function() {
+        $('#container').animate({
+          width: oddClick? "100%":"60%",
+        });
+        $(this).text(oddClick? "窄版":"宽版");
+        oddClick = !oddClick;
+      });
+    });
+</script>
+
+    </head>
+
+    <body>
+        <div id="container" class="typo">
+            
+    <div id="header">
+        <div id="post-nav">
+            <div id="toggle-button">宽版</div>
+            
+            <a href="/">Home</a> » <a href="/#tools">tools</a> » markdown语法
+            
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div id="content">
+        <div class="toc"><span class="toctitle">Table of Contents</span><ul>
+<li><a href="#_1">标题</a></li>
+<li><a href="#_2">列表</a></li>
+<li><a href="#_3">引用</a></li>
+<li><a href="#_4">图片与链接</a></li>
+<li><a href="#_5">粗体与斜体</a></li>
+<li><a href="#_6">表格</a></li>
+<li><a href="#_7">行内代码</a></li>
+<li><a href="#_8">代码块</a></li>
+<li><a href="#_9">分割线</a></li>
+</ul>
+</div>
+<h2 id="_1">标题</h2>
+<p>在这段文字前加 # 号即可。</p>
+<div class="hlcode"><pre><span class="c"># 一级标题</span>
+<span class="c">## 二级标题</span>
+<span class="c">### 三级标题</span>
+</pre></div>
+
+
+<p>以此类推，总共六级标题，建议在井号后加一个空格，这是最标准的 Markdown 语法。</p>
+<h2 id="_2">列表</h2>
+<p>列表的显示只需要在文字前加上 - 或 * 即可变为无序列表</p>
+<p>有序列表则直接在文字前加 1. 2. 3. 符号要和文字之间加上一个字符的空格。</p>
+<h2 id="_3">引用</h2>
+<p>在文本前加入 &gt; 这种尖括号（大于号）即可.</p>
+<div class="hlcode"><pre><span class="o">&gt;</span> <span class="err">例如这样</span>
+</pre></div>
+
+
+<h2 id="_4">图片与链接</h2>
+<p>插入链接与插入图片的语法很像，区别在一个 !号</p>
+<p>图片为：<code>![Title](图片URL)</code></p>
+<p>链接为：<code>[Title](URL)</code></p>
+<h2 id="_5">粗体与斜体</h2>
+<p>用两个 * 包含一段文本就是粗体的语法</p>
+<p>用一个 * 包含一段文本就是斜体的语法。</p>
+<h2 id="_6">表格</h2>
+<div class="hlcode"><pre><span class="p">|</span> <span class="s-Atom">col1</span>          <span class="p">|</span> <span class="s-Atom">col2</span>          <span class="p">|</span> <span class="s-Atom">col3</span>  <span class="p">|</span>
+<span class="p">|</span> <span class="s-Atom">-------------</span> <span class="p">|:-</span><span class="s-Atom">------------:</span><span class="p">|</span> <span class="s-Atom">-----:</span><span class="p">|</span>
+<span class="p">|</span>        <span class="m">1</span>      <span class="p">|</span>   <span class="s-Atom">centered</span>    <span class="p">|</span>    <span class="m">3</span>  <span class="p">|</span>
+<span class="p">|</span>        <span class="m">2</span>      <span class="p">|</span>   <span class="s-Atom">centered</span>    <span class="p">|</span>    <span class="m">4</span>  <span class="p">|</span>
+<span class="p">|</span>        <span class="m">3</span>      <span class="p">|</span>               <span class="p">|</span>    <span class="m">5</span>  <span class="p">|</span>
+</pre></div>
+
+
+<h2 id="_7">行内代码</h2>
+<p>用两个 ` 把中间的代码包裹起来。</p>
+<h2 id="_8">代码块</h2>
+<p>前后各三`把中间的代码包起来即可。</p>
+<h2 id="_9">分割线</h2>
+<p>分割线的语法只需要三个 * 号。</p>
+    </div>
+
+        </div>
+        <div id="footer">
+              <p>Copyright © 2012-2016 holten.Powered by <a href="http://simiki.org/" target="_blank">Simiki</a>.</p>
+              <p>Last Update 2016-06-08 16:35:36</p>
+              <p>PageViews:<span id="busuanzi_value_site_pv"></span> | Vistors:<span id="busuanzi_value_site_uv"></span></p>
+        </div>
+        <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    </body>
+</html>

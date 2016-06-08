@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <link rel="Stylesheet" type="text/css" href="/static/css/typo.css">
+        <link rel="Stylesheet" type="text/css" href="/static/css/reset_typo.css">
+        <link rel="Stylesheet" type="text/css" href="/static/css/tango.css">
+        <link rel="Stylesheet" type="text/css" href="/static/css/style.css">
+        <title>CentOS下FTP服务器安装与配置 - wiki·holten</title>
+        <meta name="keywords" content="wiki,holten"/>
+        <meta name="description" content="Lise is beautiful."/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+<script language="javascript" type="text/javascript">
+    var oddClick = true;
+    $(document).ready(function() {
+      $('#toggle-button').click(function() {
+        $('#container').animate({
+          width: oddClick? "100%":"60%",
+        });
+        $(this).text(oddClick? "窄版":"宽版");
+        oddClick = !oddClick;
+      });
+    });
+</script>
+
+    </head>
+
+    <body>
+        <div id="container" class="typo">
+            
+    <div id="header">
+        <div id="post-nav">
+            <div id="toggle-button">宽版</div>
+            
+            <a href="/">Home</a> » <a href="/#tools">tools</a> » CentOS下FTP服务器安装与配置
+            
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div id="content">
+        <div class="toc"><span class="toctitle">Table of Contents</span><ul>
+<li><a href="#vsftpd">安装vsftpd</a></li>
+<li><a href="#vsftpd_1">启动/重启/关闭vsftpd服务器</a></li>
+<li><a href="#vsftpd_2">与vsftpd服务器有关的文件和文件夹</a></li>
+<li><a href="#ftp">定制进入FTP服务器的欢迎信息</a></li>
+<li><a href="#_1">设置开机启动</a></li>
+<li><a href="#vsftpdconf">配置vsftpd.conf</a></li>
+</ul>
+</div>
+<h2 id="vsftpd">安装vsftpd</h2>
+<div class="hlcode"><pre>yum install vsftpd
+</pre></div>
+
+
+<h2 id="vsftpd_1">启动/重启/关闭vsftpd服务器</h2>
+<p>CentOS7 以下：</p>
+<ul>
+<li>
+<p>启动: <code>service vsftpd start</code></p>
+</li>
+<li>
+<p>停止: <code>service vsftpd stop</code></p>
+</li>
+<li>
+<p>重启: <code>service vsftpd restart</code></p>
+</li>
+<li>
+<p>执行完成后可以使用<code>service vsftpd status</code>查看运行状态</p>
+</li>
+</ul>
+<p>CentOS7：</p>
+<ul>
+<li>
+<p>启动: <code>/bin/systemctl start vsftpd.service</code></p>
+</li>
+<li>
+<p>停止: <code>/bin/systemctl stop vsftpd.service</code></p>
+</li>
+<li>
+<p>重启: <code>/bin/systemctl restart vsftpd.service</code></p>
+</li>
+<li>
+<p>执行完成后可以使用<code>/bin/systemctl status vsftpd.service</code>查看状态</p>
+</li>
+</ul>
+<h2 id="vsftpd_2">与vsftpd服务器有关的文件和文件夹</h2>
+<p>vsftpd服务器的配置文件的是: <code>/etc/vsftpd/vsftpd.conf</code></p>
+<h2 id="ftp">定制进入FTP服务器的欢迎信息</h2>
+<p>在vsftpd.conf文件中设置:<code>dirmessage_enable=yes</code>,然后进入用户目录建立一个<code>.message</code>文件,输入欢迎信息即可。</p>
+<h2 id="_1">设置开机启动</h2>
+<p>找到/etc/rc.local文件，在最后一行添加：<code>service vsftpd start</code> ,保存，退出</p>
+<h2 id="vsftpdconf">配置vsftpd.conf</h2>
+<div class="hlcode"><pre><span class="nv">anonymous_enable</span><span class="o">=</span>NO                                  <span class="c">#禁止匿名</span>
+<span class="nv">local_enable</span><span class="o">=</span>YES                                     <span class="c">#允许本地登录</span>
+<span class="nv">write_enable</span><span class="o">=</span>YES                                     <span class="c">#允许写，如需上传，则必须</span>
+<span class="nv">local_umask</span><span class="o">=</span>027                                      <span class="c">#将上传文件的权限设置为：777-local_umask</span>
+<span class="nv">anon_upload_enable</span><span class="o">=</span>YES                               <span class="c"># 允许虚拟用户和匿名用户上传</span>
+<span class="nv">anon_other_write_enable</span><span class="o">=</span>YES                          <span class="c">#允许虚拟用户和匿名用户修改文件名和删除文件</span>
+<span class="nv">dirmessage_enable</span><span class="o">=</span>YES          
+<span class="nv">xferlog_enable</span><span class="o">=</span>YES                                   <span class="c">#打开日志记录</span>
+<span class="nv">connect_from_port_20</span><span class="o">=</span>YES
+<span class="nv">xferlog_file</span><span class="o">=</span>/var/log/vsftpd.log                     <span class="c">#日志存放位置</span>
+<span class="nv">xferlog_std_format</span><span class="o">=</span>YES                               <span class="c">#标准日志格式</span>
+<span class="nv">idle_session_timeout</span><span class="o">=</span>600                             <span class="c">#空闲连接超时</span>
+<span class="nv">data_connection_timeout</span><span class="o">=</span>120
+<span class="nv">ftpd_banner</span><span class="o">=</span>Welcome to Holten FTP service            <span class="c">#欢迎信息</span>
+<span class="nv">guest_enable</span><span class="o">=</span>yes                                     <span class="c">#允许虚拟用户</span>
+<span class="nv">guest_username</span><span class="o">=</span>vsftpdguest                           <span class="c">#虚拟用户使用的系统账号</span>
+<span class="nv">virtual_use_local_privs</span><span class="o">=</span>YES                          <span class="c">#虚拟用户拥有本地系统权限</span>
+<span class="nv">chroot_local_user</span><span class="o">=</span>NO              
+<span class="nv">chroot_list_enable</span><span class="o">=</span>YES
+<span class="c">#以上两行将虚拟用户限制在其目录下，不能访问其他目录，或者直接用                            </span>
+<span class="nv">chroot_local_user</span><span class="o">=</span>YES                               
+<span class="nv">listen</span><span class="o">=</span>yes                                           <span class="c">#监听/被动模式</span>
+<span class="nv">listen_port</span><span class="o">=</span>21                                       <span class="c">#监听端口</span>
+<span class="nv">chroot_list_file</span><span class="o">=</span>/etc/vsftpd/vsftpd.chroot_list      <span class="c">#虚拟用户名单保存在文件 /etc/vsftpd/vsftpd.chroot_list 中</span>
+<span class="nv">user_config_dir</span><span class="o">=</span>/etc/vsftpd/vsftpd_user_conf         <span class="c">#每个虚拟用户名的更加详细的培植保存在 /etc/vsftpd/vsftpd_user_conf 中</span>
+</pre></div>
+    </div>
+
+        </div>
+        <div id="footer">
+              <p>Copyright © 2012-2016 holten.Powered by <a href="http://simiki.org/" target="_blank">Simiki</a>.</p>
+              <p>Last Update 2016-06-08 16:35:36</p>
+              <p>PageViews:<span id="busuanzi_value_site_pv"></span> | Vistors:<span id="busuanzi_value_site_uv"></span></p>
+        </div>
+        <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    </body>
+</html>
