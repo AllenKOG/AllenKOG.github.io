@@ -5,7 +5,7 @@
         <link rel="Stylesheet" type="text/css" href="/static/css/tango.css">
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/favicon.ico" type="image/x-icon">
-        <title>markdown - wiki·holten</title>
+        <title>markdown语法 - wiki·holten</title>
         <meta name="keywords" content="holten,wiki"/>
         <meta name="description" content="holten wiki"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -15,12 +15,51 @@
         <div id="container">
             
 <div id="header">
-  <div id="post-nav"><a href="/">Home</a>&nbsp;»&nbsp;<a href="/#tools">tools</a>&nbsp;»&nbsp;markdown</div>
+  <div id="post-nav"><a href="/">Home</a>&nbsp;»&nbsp;<a href="/#tools">tools</a>&nbsp;»&nbsp;markdown语法</div>
 </div>
 <div class="clearfix"></div>
-<div id="title">markdown</div>
+<div id="title">markdown语法</div>
   <div id="content">
-  
+  <h2 id="_1">标题</h2>
+<p>在这段文字前加 # 号即可。</p>
+<div class="hlcode"><pre><span class="c"># 一级标题</span>
+<span class="c">## 二级标题</span>
+<span class="c">### 三级标题</span>
+</pre></div>
+
+
+<p>以此类推，总共六级标题，建议在井号后加一个空格，这是最标准的 Markdown 语法。</p>
+<h2 id="_2">列表</h2>
+<p>列表的显示只需要在文字前加上 - 或 * 即可变为无序列表</p>
+<p>有序列表则直接在文字前加 1. 2. 3. 符号要和文字之间加上一个字符的空格。</p>
+<h2 id="_3">引用</h2>
+<p>在文本前加入 &gt; 这种尖括号（大于号）即可.</p>
+<div class="hlcode"><pre><span class="o">&gt;</span> <span class="err">例如这样</span>
+</pre></div>
+
+
+<h2 id="_4">图片与链接</h2>
+<p>插入链接与插入图片的语法很像，区别在一个 !号</p>
+<p>图片为：<code>![Title](图片URL)</code></p>
+<p>链接为：<code>[Title](URL)</code></p>
+<h2 id="_5">粗体与斜体</h2>
+<p>用两个 * 包含一段文本就是粗体的语法</p>
+<p>用一个 * 包含一段文本就是斜体的语法。</p>
+<h2 id="_6">表格</h2>
+<div class="hlcode"><pre><span class="p">|</span> <span class="s-Atom">col1</span>          <span class="p">|</span> <span class="s-Atom">col2</span>          <span class="p">|</span> <span class="s-Atom">col3</span>  <span class="p">|</span>
+<span class="p">|</span> <span class="s-Atom">-------------</span> <span class="p">|:-</span><span class="s-Atom">------------:</span><span class="p">|</span> <span class="s-Atom">-----:</span><span class="p">|</span>
+<span class="p">|</span>        <span class="m">1</span>      <span class="p">|</span>   <span class="s-Atom">centered</span>    <span class="p">|</span>    <span class="m">3</span>  <span class="p">|</span>
+<span class="p">|</span>        <span class="m">2</span>      <span class="p">|</span>   <span class="s-Atom">centered</span>    <span class="p">|</span>    <span class="m">4</span>  <span class="p">|</span>
+<span class="p">|</span>        <span class="m">3</span>      <span class="p">|</span>               <span class="p">|</span>    <span class="m">5</span>  <span class="p">|</span>
+</pre></div>
+
+
+<h2 id="_7">行内代码</h2>
+<p>用两个 ` 把中间的代码包裹起来。</p>
+<h2 id="_8">代码块</h2>
+<p>前后各三`把中间的代码包起来即可。</p>
+<h2 id="_9">分割线</h2>
+<p>分割线的语法只需要三个 * 号。</p>
 </div>
 
         </div>
