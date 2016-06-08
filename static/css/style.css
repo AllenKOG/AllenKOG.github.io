@@ -61,7 +61,7 @@ td {
 }
 
 /* Optimization for pre and code tag */
-pre, code { 
+pre, code {
     /* font-family: Consolas, "DejaVu Sans Mono", "Lucida Console", Monaco, Andale Mono, "MS Gothic", monospace; */
     /* font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace; +++++ */
     font-size: 90%;

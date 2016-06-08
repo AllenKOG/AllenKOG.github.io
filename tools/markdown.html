@@ -12,13 +12,13 @@
         
 <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
 <script language="javascript" type="text/javascript">
-    var oddClick = true;
+    var oddClick = false;
     $(document).ready(function() {
       $('#toggle-button').click(function() {
         $('#container').animate({
-          width: oddClick? "100%":"60%",
+          width: oddClick? "60%":"100%",
         });
-        $(this).text(oddClick? "窄版":"宽版");
+        $(this).text(oddClick? "宽版":"窄版");
         oddClick = !oddClick;
       });
     });
@@ -31,7 +31,7 @@
             
     <div id="header">
         <div id="post-nav">
-            <div id="toggle-button">宽版</div>
+            <div id="toggle-button">窄版</div>
             
             <a href="/">Home</a> » <a href="/#tools">tools</a> » markdown语法
             
@@ -39,7 +39,19 @@
     </div>
     <div class="clearfix"></div>
     <div id="content">
-        <h2 id="_1">标题</h2>
+        <div class="toc"><span class="toctitle">Table of Contents</span><ul>
+<li><a href="#_1">标题</a></li>
+<li><a href="#_2">列表</a></li>
+<li><a href="#_3">引用</a></li>
+<li><a href="#_4">图片与链接</a></li>
+<li><a href="#_5">粗体与斜体</a></li>
+<li><a href="#_6">表格</a></li>
+<li><a href="#_7">行内代码</a></li>
+<li><a href="#_8">代码块</a></li>
+<li><a href="#_9">分割线</a></li>
+</ul>
+</div>
+<h2 id="_1">标题</h2>
 <p>在这段文字前加 # 号即可。</p>
 <div class="hlcode"><pre><span class="c"># 一级标题</span>
 <span class="c">## 二级标题</span>
@@ -84,11 +96,13 @@
         </div>
         <div id="footer">
               <p>
-                Copyright © 2012-2016 holten.
+                Copyright © 2015-2016 holten.
                 Powered by <a href="http://simiki.org/" target="_blank">Simiki</a>.
                 Theme by <a href="https://github.com/tankywoo/yasimple" target="_blank">YASimple</a>.
               </p>
-                <p>Last Update 2016-06-08 15:12:25</p>
+                <p>Last Update 2016-06-08 15:40:21</p>
+                <p>PageViews:<span id="busuanzi_value_site_pv"></span> | Vistors:<span id="busuanzi_value_site_uv"></span></p>
         </div>
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     </body>
 </html>
