@@ -1,26 +1,45 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <link rel="Stylesheet" type="text/css" href="/static/css/style.css">
+        <link rel="Stylesheet" type="text/css" href="/static/css/typo.css">
+        <link rel="Stylesheet" type="text/css" href="/static/css/reset_typo.css">
         <link rel="Stylesheet" type="text/css" href="/static/css/tango.css">
-        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-        <link rel="icon" href="/favicon.ico" type="image/x-icon">
+        <link rel="Stylesheet" type="text/css" href="/static/css/style.css">
         <title>FTP常见错误及解决方案 - wiki·holten</title>
         <meta name="keywords" content="holten,wiki"/>
         <meta name="description" content="holten wiki"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+<script language="javascript" type="text/javascript">
+    var oddClick = true;
+    $(document).ready(function() {
+      $('#toggle-button').click(function() {
+        $('#container').animate({
+          width: oddClick? "100%":"60%",
+        });
+        $(this).text(oddClick? "窄版":"宽版");
+        oddClick = !oddClick;
+      });
+    });
+</script>
+
     </head>
 
     <body>
-        <div id="container">
+        <div id="container" class="typo">
             
-<div id="header">
-  <div id="post-nav"><a href="/">Home</a>&nbsp;»&nbsp;<a href="/#tools">tools</a>&nbsp;»&nbsp;FTP常见错误及解决方案</div>
-</div>
-<div class="clearfix"></div>
-<div id="title">FTP常见错误及解决方案</div>
-  <div id="content">
-  <h2 id="227-entering-passive-mode">227 Entering Passive Mode</h2>
+    <div id="header">
+        <div id="post-nav">
+            <div id="toggle-button">宽版</div>
+            
+            <a href="/">Home</a> » <a href="/#tools">tools</a> » FTP常见错误及解决方案
+            
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div id="content">
+        <h2 id="227-entering-passive-mode">227 Entering Passive Mode</h2>
 <div class="hlcode"><pre>响应: 227 Entering Passive Mode <span class="o">(</span>192,168,1,16,221,111<span class="o">)</span>.
 命令: LIST
 错误: 连接超时
@@ -48,15 +67,16 @@
 </ol>
 <p>重启vsftp服务<code>service vsftpd restart</code></p>
 <p>重启iptables服务<code>service iptables restart</code></p>
-</div>
+    </div>
 
         </div>
         <div id="footer">
-            <span>
-                Copyright © 2016 holten.
+              <p>
+                Copyright © 2012-2016 holten.
                 Powered by <a href="http://simiki.org/" target="_blank">Simiki</a>.
-            </span>
+                Theme by <a href="https://github.com/tankywoo/yasimple" target="_blank">YASimple</a>.
+              </p>
+                <p>Last Update 2016-06-08 15:12:25</p>
         </div>
-        
     </body>
 </html>
